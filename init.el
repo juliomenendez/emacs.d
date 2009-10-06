@@ -19,7 +19,8 @@
 (defconst emacsd-dir (expand-file-name "~/.emacs.d/"))
 (setq load-path (append
 		 (list (expand-file-name "contrib/" emacsd-dir)
-                       (expand-file-name "contrib/tramp/" emacsd-dir))
+                       (expand-file-name "contrib/tramp/" emacsd-dir)
+                       (expand-file-name "contrib/yasnippet/" emacsd-dir))                 
 		 load-path))
 
 (fset 'yes-or-no-p 'y-or-n-p) ;; Use y or n instead of yes or no
@@ -87,12 +88,16 @@
 
 ;; Javascript-mode stuff
 
-(autoload 'js2-mode "js2" nil t)
-(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+;(autoload 'js2-mode "js2" nil t)
+;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; Functions
 
 (require 'thingatpt)
+
+(require 'yasnippet)
+(yas/initialize)
+(yas/load-directory "~/.emacs.d/contrib/yasnippet/snippets")
 
 (defun view-url ()
   "Open a new buffer containing the contents of URL."
@@ -107,3 +112,15 @@
 
 
 (load "bindings")
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(js2-basic-offset 4))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ )
