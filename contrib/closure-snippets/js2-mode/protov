@@ -1,0 +1,8 @@
+# group: closure
+# --
+/**
+ * $0
+ * @type {$4}
+ * @private
+ */
+`(get-current-provide-string)`.prototype.${1:var}_ = ${2:null};
