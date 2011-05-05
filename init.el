@@ -50,21 +50,9 @@
 (add-hook 'text-mode-hook 'turn-on-auto-fill)
 (add-hook 'text-mode-hook 'turn-on-flyspell)
 
-;; nxhtml stuff
-(load "nxhtml/autostart")
-(setq mumamo-chunk-coloring 'submode-colored
-      nxhtml-skip-welcome t
-      indent-region-mode t
-      rng-nxml-auto-validate-flag nil)
-
-(eval-after-load 'nxhtml
-  '(eval-after-load 'zenburn
-     '(set-face-background 'mumamo-background-chunk-submode "gray22")))
-
 
 ;; Python-mode stuff
 
-(require 'ipython)
 (setq auto-mode-alist (cons '("\\.py$" . python-mode) auto-mode-alist))
 (setq interpreter-mode-alist (cons '("python" . python-mode)
 				   interpreter-mode-alist))
@@ -88,16 +76,20 @@
 
 ;; Javascript-mode stuff
 
-;(autoload 'js2-mode "js2" nil t)
-;(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(autoload 'js2-mode "js2" nil t)
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; Functions
-
-(require 'thingatpt)
 
 (require 'yasnippet)
 (yas/initialize)
 (yas/load-directory "~/.emacs.d/contrib/yasnippet/snippets")
+(setq yas/prompt-functions '(yas/ido-prompt yas/dropdown-prompt yas/completing-prompt yas/x-prompt yas/no-prompt))
+
+(let ((closure-snippets "~/.emacs.d/contrib/closure-snippets"))
+  (add-to-list 'load-path closure-snippets)
+  (require 'closure-snippets-support)
+  (yas/load-directory closure-snippets))
 
 (defun view-url ()
   "Open a new buffer containing the contents of URL."
