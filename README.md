@@ -1,1 +1,1 @@
-# Emacs.d
+# Just my .emacs.d/
