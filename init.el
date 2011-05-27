@@ -110,6 +110,12 @@
 (add-to-list 'auto-mode-alist '("\\.inc$" . php-mode))
 
 (load "bindings")
+
+;; Markdown
+(autoload 'markdown-mode "markdown-mode.el" "Major mode for editing Markdown files" t)
+(setq auto-mode-alist
+      (cons '("\\.md" . markdown-mode) auto-mode-alist))
+
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
