@@ -20,7 +20,8 @@
 (setq load-path (append
 		 (list (expand-file-name "contrib/" emacsd-dir)
                        (expand-file-name "contrib/tramp/" emacsd-dir)
-                       (expand-file-name "contrib/yasnippet/" emacsd-dir))                 
+                       (expand-file-name "contrib/yasnippet/" emacsd-dir)
+                       (expand-file-name "contrib/js2-mode/" emacsd-dir))
 		 load-path))
 
 (fset 'yes-or-no-p 'y-or-n-p) ;; Use y or n instead of yes or no
@@ -76,8 +77,11 @@
 
 ;; Javascript-mode stuff
 
-(autoload 'js2-mode "js2" nil t)
+(autoload 'js2-mode "js2-mode" nil t)
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(setq js2-consistent-level-indent-inner-bracket-p t
+     js2-pretty-multiline-decl-indentation-p t)
+
 
 ;; Functions
 
