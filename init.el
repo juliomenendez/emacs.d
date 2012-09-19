@@ -157,6 +157,14 @@
                   'font-lock-beginning-of-syntax-function))
 )
 
+;; C++ stuff
+(setq compilation-window-height 8)
+(defun my-c-mode-common-hook ()
+  (setq tab-width 2) ;; change this to taste, this is what K&R uses :)
+  (setq c-basic-offset tab-width)
+  (setq indent-tabs-mode nil)) ;; force only spaces for indentation
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
