@@ -61,19 +61,19 @@
 				   interpreter-mode-alist))
 (autoload 'python-mode "python-mode" "Python editing mode." t)
 
-(defun cs-python-mode-hook () 
+
+(defun cs-python-mode-hook ()
    (turn-on-font-lock)
    (setq auto-fill-function 'do-auto-fill
-         indent-tabs-mode nil 
-         py-python-command "python" 
-         py-indent-offset 4 
-         py-smart-indentation t 
+         indent-tabs-mode nil
+         py-python-command "python"
+         py-indent-offset 4
+         py-smart-indentation t
          py-block-comment-prefix "#")
 
    (set (make-variable-buffer-local 'beginning-of-defun-function)
 	'py-beginning-of-def-or-class)
    (setq outline-regexp "def\\|class "))
-
 (add-hook 'python-mode-hook 'cs-python-mode-hook)
 
 
