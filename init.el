@@ -123,6 +123,14 @@
 (require 'magit)
 
 (load "nxhtml/autostart.el")
+;; Mumamo is making emacs 24 freak out:
+(when (and (> emacs-major-version 23)
+           (> emacs-minor-version 3))
+  (eval-after-load "bytecomp"
+    '(add-to-list 'byte-compile-not-obsolete-vars
+                  'font-lock-beginning-of-syntax-function))
+)
+
 (custom-set-variables
   ;; custom-set-variables was added by Custom.
   ;; If you edit it by hand, you could mess it up, so be careful.
