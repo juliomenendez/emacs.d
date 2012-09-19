@@ -26,6 +26,8 @@
 
 (fset 'yes-or-no-p 'y-or-n-p) ;; Use y or n instead of yes or no
 
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
 (require 'tramp)
 (setq tramp-default-method "ssh")
 
