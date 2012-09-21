@@ -148,14 +148,6 @@
 
 (require 'magit)
 
-(load "nxhtml/autostart.el")
-;; Mumamo is making emacs 24 freak out:
-(when (and (> emacs-major-version 23)
-           (> emacs-minor-version 3))
-  (eval-after-load "bytecomp"
-    '(add-to-list 'byte-compile-not-obsolete-vars
-                  'font-lock-beginning-of-syntax-function))
-)
 
 ;; C++ stuff
 (setq compilation-window-height 8)
