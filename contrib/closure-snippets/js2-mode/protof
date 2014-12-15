@@ -1,8 +1,0 @@
-# group: closure
-# --
-/**
- * @param {${3:type}} $4
- */
-`(get-current-provide-string)`.prototype.${1:fn} = function($2) {
-  $0
-};
